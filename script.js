@@ -9,7 +9,7 @@ const ratioSelect = document.getElementById("ratio-select");
 const gridGallery = document.querySelector(".gallery-grid");
 
 // Your backend URL from Render.com
-const BACKEND_URL = 'https://image-generator-api-harr.onrender.com/generate'; // Replace with your actual Render URL
+const BACKEND_URL = 'https://image-generator-api-xv6i.onrender.com/generate'; // Replace with your actual Render URL
 
 const examplePrompts = [
     "A picture of a dog",
