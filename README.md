@@ -103,9 +103,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-- **GitHub**: [@AadityaGeek](https://github.com/AadityaGeek)
+- **GitHub**: [@AadityaGeek](https://github.com/AadityaGeek/)
 - **Email**: `work.aadityakumar [at] gmail [dot] com`
-- **LinkedIn**: [Aaditya Kumar](https://www.linkedin.com/in/aadityakr)
-- **Portfolio**: [Aaditya Kumar](https://aadityageek.github.io)
+- **LinkedIn**: [Aaditya Kumar](https://www.linkedin.com/in/aadityakr/)
+- **Portfolio**: [Aaditya Kumar](https://aadityageek.github.io/)
 
 Feel free to reach out if you have any questions or suggestions!
