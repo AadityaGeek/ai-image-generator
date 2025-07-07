@@ -7,12 +7,15 @@ A modern web application that generates images using various AI models through a
 ## Screenshots
 
 ### Light Theme
+
 ![Light Theme](./screenshots/light-theme.png)
 
 ### Dark Theme
+
 ![Dark Theme](./screenshots/dark-theme.png)
 
 ### Mobile View
+
 ![Mobile View](./screenshots/mobile-view.png)
 
 ## Features
@@ -46,11 +49,13 @@ A modern web application that generates images using various AI models through a
 ## Setup
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/AadityaGeek/ai-image-generator.git
 ```
 
 2. Update the `BACKEND_URL` in `script.js` to point to your API endpoint:
+
 ```javascript
 const BACKEND_URL = 'your-backend-url';
 ```
@@ -69,11 +74,14 @@ const BACKEND_URL = 'your-backend-url';
 ## Features in Detail
 
 ### Image Generation
+
+- Generates images from text descriptions
 - Supports multiple AI models for different styling options
 - Adjustable aspect ratios for various use cases
 - Multiple image generation in a single request
 
 ### User Interface
+
 - Clean and modern design
 - Dark/Light theme toggle
 - Loading states with spinners
@@ -81,6 +89,7 @@ const BACKEND_URL = 'your-backend-url';
 - Responsive gallery grid layout
 
 ### Image Interaction
+
 - Fullscreen view mode
 - Zoom functionality with mouse wheel
 - Zoom level indicator
@@ -103,9 +112,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-- **GitHub**: [@AadityaGeek](https://github.com/AadityaGeek)
+- **GitHub**: [@AadityaGeek](https://github.com/AadityaGeek/)
 - **Email**: `work.aadityakumar [at] gmail [dot] com`
 - **LinkedIn**: [Aaditya Kumar](https://www.linkedin.com/in/aadityakr/)
-- **Portfolio**: [Aaditya Kumar](https://aadityageek.github.io)
+- **Portfolio**: [Aaditya Kumar](https://aadityageek.github.io/)
 
 Feel free to reach out if you have any questions or suggestions!
