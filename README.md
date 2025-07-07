@@ -2,9 +2,7 @@
 
 A modern web application that generates images using various AI models through a clean and intuitive interface. Users can create images from text descriptions with different aspect ratios and model options.
 
-![AI Image Generator Screenshot]
-
-## Screenshots
+## AI Image Generator Screenshots
 
 ### Light Theme
 
@@ -16,7 +14,7 @@ A modern web application that generates images using various AI models through a
 
 ### Mobile View
 
-![Mobile View](./screenshots/mobile-view.png)
+<img src="./screenshots/mobile-view.png" alt="Mobile View" width="500">
 
 ## Features
 
