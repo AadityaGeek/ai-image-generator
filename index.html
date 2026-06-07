@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Image Generator</title>
     <!-- Linking Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <!-- Header -->
@@ -28,23 +30,27 @@
             <form action="#" class="prompt-form">
                 <!-- Prompt Container -->
                 <div class="prompt-container">
-                    <textarea class="prompt-input" placeholder="Describe your imagination in details..." required autofocus></textarea>
+                    <textarea class="prompt-input" placeholder="Describe your imagination in details..." required
+                        autofocus></textarea>
                     <button type="button" class="prompt-btn">
                         <i class="fa-solid fa-dice"></i>
                     </button>
                 </div>
 
                 <!-- Prompt Actions/Buttons -->
-                 <div class="prompt-actions">
+                <div class="prompt-actions">
                     <div class="select-wrapper">
                         <select class="custom-select" id="model-select" required>
                             <option value="" selected disabled>Select Model</option>
+                            <!-- Working models -->
+                            <option value="black-forest-labs/FLUX.1-schnell">FLUX.1-schnell</option>
+                            <option value="stabilityai/stable-diffusion-3-medium-diffusers">Stable Diffusion 3 Medium
+                            </option>
+                            <!-- Not working models -->
                             <option value="black-forest-labs/FLUX.1-dev">FLUX.1-dev</option>
                             <option value="CompVis/stable-diffusion-v1-4">Stable Diffusion v1.4</option>
                             <option value="stabilityai/stable-diffusion-xl-base-1.0">Stable Diffusion XL</option>
-                            <option value="stabilityai/stable-diffusion-3-medium-diffusers">Stable Diffusion 3 Medium</option>
                             <option value="stabilityai/stable-diffusion-2-1">Stable Diffusion 2.1</option>
-                            <option value="black-forest-labs/FLUX.1-schnell">FLUX.1-schnell</option>
                             <option value="prompthero/openjourney">OpenJourney</option>
                             <option value="sd-legacy/stable-diffusion-v1-5">Stable Diffusion v1.5</option>
                         </select>
@@ -73,10 +79,10 @@
                         <i class="fa-solid fa-wand-sparkles"></i>
                         Generate
                     </button>
-                 </div>
+                </div>
 
-                 <!-- Result Gallery Grid -->
-                  <div class="gallery-grid"></div>
+                <!-- Result Gallery Grid -->
+                <div class="gallery-grid"></div>
             </form>
         </div>
     </div>
@@ -91,4 +97,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
