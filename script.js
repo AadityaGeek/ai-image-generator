@@ -8,8 +8,13 @@ const countSelect = document.getElementById("count-select");
 const ratioSelect = document.getElementById("ratio-select");
 const gridGallery = document.querySelector(".gallery-grid");
 
-// Your backend URL from Render.com
-const BACKEND_URL = "https://image-generator-api-xv6i.onrender.com/generate"; // Replace with your actual Render URL
+// Backend URL: connects to local server when running locally, or deployed Render URL
+const BACKEND_URL =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1" ||
+  window.location.port === "3000"
+    ? "http://localhost:3000/generate"
+    : "https://image-generator-api-xv6i.onrender.com/generate";
 
 const examplePrompts = [
   "A picture of a dog",
@@ -113,7 +118,7 @@ const updateImageCard = (imgIndex, imgUrl) => {
                         </div>`;
 };
 
-// Updated generateImages function to use backend
+// Updated generateImages function to use backend with unique seed per card
 const generateImages = async (
   selectedModel,
   imageCount,
@@ -123,7 +128,10 @@ const generateImages = async (
   const { width, height } = getImageDimensions(aspectRatio);
   generateBtn.setAttribute("disabled", true);
 
+  const baseSeed = Math.floor(Math.random() * 1000000);
+
   const imagePromises = Array.from({ length: imageCount }, async (_, i) => {
+    const cardSeed = baseSeed + i * 7919;
     try {
       const response = await fetch(BACKEND_URL, {
         method: "POST",
@@ -135,23 +143,31 @@ const generateImages = async (
           prompt: promptText,
           width,
           height,
+          seed: cardSeed,
         }),
       });
 
       if (!response.ok) {
         const errText = await response.text().catch(() => "");
+        let errMsg = `Generation failed (${response.status})`;
+        try {
+          const json = JSON.parse(errText);
+          errMsg = json.error || json.message || errMsg;
+        } catch (_) {}
         console.error("Server returned", response.status, errText);
-        throw new Error(errText || `Generation failed: ${response.status}`);
+        throw new Error(errMsg);
       }
 
       const blob = await response.blob();
       updateImageCard(i, URL.createObjectURL(blob));
     } catch (error) {
-      console.log(error);
+      console.error(error);
       const imgCard = document.getElementById(`img-card-${i}`);
-      imgCard.classList.replace("loading", "error");
-      imgCard.querySelector(".status-text").textContent =
-        "Generation Failed! Check console for more details.";
+      if (imgCard) {
+        imgCard.classList.replace("loading", "error");
+        imgCard.querySelector(".status-text").textContent =
+          error.message || "Generation Failed! Please try again.";
+      }
     }
   });
 

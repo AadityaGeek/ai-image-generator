@@ -19,10 +19,12 @@ A modern web application that generates images using various AI models through a
 ## Features
 
 - 🎨 Support for multiple AI models including:
-  - FLUX.1-dev
-  - Stable Diffusion v1.4/v1.5/v2.1/v3/XL
-  - OpenJourney
-  - FLUX.1-schnell
+  - FLUX.1 Schnell (High Quality & Detail)
+  - Stable Diffusion 3 Medium (Hugging Face)
+  - FLUX Photorealism (Cinematic & Realistic)
+  - FLUX Anime (Manga & Japanese Anime)
+  - FLUX 3D (3D Digital Art & CGI)
+  - SDXL Turbo (Ultra-Fast Generation)
 - 🖼️ Multiple aspect ratio options (1:1, 16:9, 9:16)
 - 🎲 Random prompt suggestions
 - 🌓 Dark/Light theme with system preference detection
@@ -38,7 +40,8 @@ A modern web application that generates images using various AI models through a
   - CSS3
   - Vanilla JavaScript
 - Backend:
-  - Custom API endpoint (hosted on Render.com)
+  - Node.js & Express API (hosted on Render.com or locally)
+  - Hugging Face Inference API / Multi-Model Engine
 - Icons:
   - Font Awesome
 - Fonts:
@@ -52,13 +55,26 @@ A modern web application that generates images using various AI models through a
 git clone https://github.com/AadityaGeek/ai-image-generator.git
 ```
 
-2. Update the `BACKEND_URL` in `script.js` to point to your API endpoint:
+2. Install backend dependencies and configure environment:
 
-```javascript
-const BACKEND_URL = 'your-backend-url';
+```bash
+cd backend
+npm install
 ```
 
-3. Open `index.html` in your web browser or serve it through a local development server.
+Create a `.env` file in the `backend/` directory:
+```env
+PORT=3000
+HF_API_KEYS=your_huggingface_api_key_1,your_huggingface_api_key_2
+```
+
+3. Start the backend server:
+
+```bash
+npm start
+```
+
+4. Open `index.html` in your web browser or serve it through a local development server.
 
 ## Usage
 
