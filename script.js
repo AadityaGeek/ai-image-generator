@@ -8,13 +8,20 @@ const countSelect = document.getElementById("count-select");
 const ratioSelect = document.getElementById("ratio-select");
 const gridGallery = document.querySelector(".gallery-grid");
 
-// Backend URL: connects to local server when running locally, or deployed Render URL
+// ==========================================
+// BACKEND CONFIGURATION
+// Replace this with your new Render service URL if creating a new service:
+// ==========================================
+const PRODUCTION_BACKEND_URL = "https://image-generator-backend-rti3.onrender.com/generate";
+const LOCAL_BACKEND_URL = "http://localhost:3000/generate";
+
+// Dynamic routing: connects to localhost during local dev, or your production URL live
 const BACKEND_URL =
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1" ||
   window.location.port === "3000"
-    ? "http://localhost:3000/generate"
-    : "https://image-generator-api-xv6i.onrender.com/generate";
+    ? LOCAL_BACKEND_URL
+    : PRODUCTION_BACKEND_URL;
 
 const examplePrompts = [
   "A picture of a dog",
