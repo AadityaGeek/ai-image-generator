@@ -213,6 +213,18 @@ body.dark-theme .container {
     color: var(--color-text);
 }
 
+.prompt-actions .custom-select optgroup {
+    font-weight: 700;
+    color: var(--color-primary);
+    background: var(--color-input);
+}
+
+.prompt-actions .custom-select option {
+    font-weight: 400;
+    color: var(--color-text);
+    background: var(--color-card);
+}
+
 .prompt-actions .custom-select:is(:focus, :hover) {
     border-color: var(--color-accent);
     box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);

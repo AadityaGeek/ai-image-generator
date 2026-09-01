@@ -23,50 +23,72 @@ const BACKEND_URL =
     ? LOCAL_BACKEND_URL
     : PRODUCTION_BACKEND_URL;
 
-const examplePrompts = [
-  "A picture of a dog",
-  "A picture of a cat",
-  "A picture of a fox",
-  "A picture of a panda",
-  "A picture of a panda eating a strawberry",
-  "A picture of a panda playing with a ball",
-  "A magic forest with glowing plants and fairy homes among giant mushrooms",
-  "An old steampunk airship floating through golden clouds at sunset",
-  "A future Mars colony with glass domes and gardens against red mountains",
-  "A dragon sleeping on gold coins in a crystal cave",
-  "An underwater kingdom with merpeople and glowing coral buildings",
-  "A floating island with waterfalls pouring into clouds below",
-  "A witch's cottage in fall with magic herbs in the garden",
-  "A robot painting in a sunny studio with art supplies around it",
-  "A magical library with floating glowing books and spiral staircases",
-  "A Japanese shrine during cherry blossom season with lanterns and misty mountains",
-  "A cosmic beach with glowing sand and an aurora in the night sky",
-  "A medieval marketplace with colorful tents and street performers",
-  "A cyberpunk city with neon signs and flying cars at night",
-  "A peaceful bamboo forest with a hidden ancient temple",
-  "A giant turtle carrying a village on its back in the ocean",
-  "A futuristic city with skyscrapers and futuristic cars",
-  "A crystalline ice palace with aurora borealis in the background",
-  "A cozy treehouse cafe serving magical potions and floating pastries",
-  "An ancient ruins overgrown with bioluminescent plants at twilight",
-  "A steampunk laboratory with brass instruments and tesla coils",
-  "A floating market in space with alien vendors and exotic goods",
-  "A mystical garden where musical instruments grow like plants",
-  "A dragon's tea party with cupcakes and floating teacups",
-  "An underwater art gallery with merfolk admiring sea-themed paintings",
-  "A candy kingdom with chocolate waterfalls and lollipop trees",
-  "A time-traveling train station with portals to different eras",
-  "A giant clockwork city powered by rainbow-colored gears",
-  "A desert oasis with floating crystal pools and palm trees",
-  "A library in the clouds with books flying like birds",
-  "A greenhouse on Mars with exotic alien plants",
-  "A fairy village built from mushrooms and autumn leaves",
-  "A phoenix rising from crystal ashes in a volcanic cave",
-  "A city where buildings are made of giant musical instruments",
-  "A magical toy shop at midnight with toys coming to life",
-  "An enchanted forest wedding with fairy lights and unicorns",
-  "A space station garden with zero-gravity floating flowers",
-];
+// ==========================================
+// DYNAMIC MODULAR PROMPT GENERATOR
+// Combinatorial system generating thousands of unique, high-detail prompts
+// ==========================================
+const promptComponents = {
+  subjects: [
+    "a cybernetic ronin in carbon-fiber armor with glowing cyan circuitry",
+    "an ethereal spirit fox woven from northern lights and starlight",
+    "a majestic crystal dragon with amethyst scales and incandescent horns",
+    "a curious baby red panda wearing a detective hat and knitted vest",
+    "a solitary interstellar astronaut in an illuminated advanced spacesuit",
+    "an elegant celestial goddess draped in flowing translucent stardust silk",
+    "a Victorian steampunk airship with polished brass gears and canvas sails",
+    "an intricate mechanical clockwork owl with golden gears and glowing eyes",
+    "a powerful sorceress wielding glowing runes and floating spellbooks",
+    "a sleek futuristic cyberpunk supercar with glowing neon outlines",
+    "a majestic snow leopard with frost-dusted fur and piercing golden eyes",
+    "an ancient stone guardian overgrown with bioluminescent flora",
+    "an avant-garde fashion model in a sculpted liquid gold gown",
+    "a mythical phoenix with radiant wings of incandescent pure flame"
+  ],
+  environments: [
+    "against the backdrop of a rain-soaked Neo-Tokyo cyberpunk metropolis",
+    "situated deep within an enchanted bioluminescent forest with glowing flora",
+    "floating high above golden sunset clouds over a mythical mountain citadel",
+    "exploring ancient overgrown Mayan ruins wrapped in lush tropical jungle vines",
+    "nestled inside a warm glass greenhouse during a gentle winter snowfall",
+    "perched atop a jagged sea cliff overlooking crashing turquoise waves",
+    "inside a grand celestial library with towering spiraling mahogany bookshelves",
+    "amidst the red sand dunes and glass biodomes of a Mars research colony",
+    "within an ancient submerged cathedral surrounded by glowing jellyfish schools",
+    "in a serene Japanese zen garden with falling pink cherry blossom petals"
+  ],
+  lighting: [
+    "illuminated by dramatic volumetric god rays and soft atmospheric haze",
+    "bathed in warm cinematic golden hour rim lighting with deep soft shadows",
+    "lit by vibrant neon signs reflecting off wet surfaces in moody twilight",
+    "shimmering under mystical moonlight and an emerald aurora borealis",
+    "glowing with warm amber lanterns and soft background bokeh",
+    "cast in ethereal morning mist with pastel twilight gradients"
+  ],
+  styles: [
+    "hyper-realistic 8k cinematic photography, shot on 85mm f/1.4 lens, masterpiece",
+    "Studio Ghibli inspired anime watercolor, soft painterly textures, vibrant color palette",
+    "isometric 3D diorama render, Octane engine, ray-traced reflections, ultra-sharp detail",
+    "epic fantasy digital matte painting, highly detailed concept art, ArtStation trending",
+    "Pixar and Disney 3D animation style, rich subsurface scattering, whimsical mood",
+    "cinematic sci-fi concept art, Unreal Engine 5 render, photorealistic textures",
+    "high-fashion editorial photography, Vogue cover aesthetic, dramatic studio lighting"
+  ]
+};
+
+// Generates dynamic combined prompts across word categories
+const getRandomItem = (array) =>
+  array[Math.floor(Math.random() * array.length)];
+
+const generateDynamicPrompt = () => {
+  const s = getRandomItem(promptComponents.subjects);
+  const e = getRandomItem(promptComponents.environments);
+  const l = getRandomItem(promptComponents.lighting);
+  const st = getRandomItem(promptComponents.styles);
+
+  // Capitalize first character and cleanly join comma-separated modular clauses
+  const subjectCapitalized = s.charAt(0).toUpperCase() + s.slice(1);
+  return `${subjectCapitalized}, ${e}, ${l}, ${st}.`;
+};
 
 // Set theme based on saved preference or system default
 (() => {
@@ -217,11 +239,9 @@ const handleFormSubmit = (e) => {
   createImageCards(selectedModel, imageCount, aspectRatio, promptText);
 };
 
-// Fill prompt input with a random example prompt
+// Generate a new dynamic combinatorial prompt on dice button click
 promptBtn.addEventListener("click", () => {
-  const prompt =
-    examplePrompts[Math.floor(Math.random() * examplePrompts.length)];
-  promptInput.value = prompt;
+  promptInput.value = generateDynamicPrompt();
   promptInput.focus();
 });
 

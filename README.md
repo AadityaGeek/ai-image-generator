@@ -18,13 +18,9 @@ A modern web application that generates images using various AI models through a
 
 ## Features
 
-- 🎨 Support for multiple AI models including:
-  - FLUX.1 Schnell (High Quality & Detail)
-  - Stable Diffusion 3 Medium (Hugging Face)
-  - FLUX Photorealism (Cinematic & Realistic)
-  - FLUX Anime (Manga & Japanese Anime)
-  - FLUX 3D (3D Digital Art & CGI)
-  - SDXL Turbo (Ultra-Fast Generation)
+- 🎨 Support for multiple AI models categorized into sections:
+  - **High-Speed Engines**: FLUX.1 Schnell, FLUX.1 Pro, FLUX Photorealism, FLUX Anime, FLUX 3D, FLUX Cinematic, Sana (NVIDIA 4K), SDXL Turbo
+  - **Hugging Face Serverless**: Stable Diffusion 3 Medium (HF)
 - 🖼️ Multiple aspect ratio options (1:1, 16:9, 9:16)
 - 🎲 Random prompt suggestions
 - 🌓 Dark/Light theme with system preference detection

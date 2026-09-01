@@ -42,12 +42,19 @@
                     <div class="select-wrapper">
                         <select class="custom-select" id="model-select" required>
                             <option value="" selected disabled>Select Model</option>
-                            <option value="flux">FLUX.1 Schnell</option>
-                            <option value="stabilityai/stable-diffusion-3-medium-diffusers">Stable Diffusion 3 Medium (HF)</option>
-                            <option value="flux-realism">FLUX Photorealism</option>
-                            <option value="flux-anime">FLUX Anime</option>
-                            <option value="flux-3d">FLUX 3D</option>
-                            <option value="turbo">SDXL Turbo</option>
+                            <optgroup label="⚡ High-Speed FLUX & Fast Engines">
+                                <option value="flux">FLUX.1 Schnell</option>
+                                <option value="flux-pro">FLUX.1 Pro</option>
+                                <option value="flux-realism">FLUX Photorealism</option>
+                                <option value="flux-anime">FLUX Anime</option>
+                                <option value="flux-3d">FLUX 3D</option>
+                                <option value="flux-cablyai">FLUX Cinematic</option>
+                                <option value="sana">Sana (NVIDIA 4K)</option>
+                                <option value="turbo">SDXL Turbo</option>
+                            </optgroup>
+                            <optgroup label="🤗 Hugging Face Serverless">
+                                <option value="stabilityai/stable-diffusion-3-medium-diffusers">Stable Diffusion 3 Medium (HF)</option>
+                            </optgroup>
                         </select>
                     </div>
 
