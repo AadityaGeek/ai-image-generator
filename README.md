@@ -2,6 +2,10 @@
 
 A modern web application that generates images using various AI models through a clean and intuitive interface. Users can create images from text descriptions with different aspect ratios and model options.
 
+## Demo
+
+https://github.com/user-attachments/assets/041615c2-16fb-475b-889f-2f73ca6a6e6f
+
 ## AI Image Generator Screenshots
 
 ### Light Theme
@@ -109,10 +113,6 @@ npm start
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
